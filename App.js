@@ -3,9 +3,12 @@ import { createStore } from 'redux'
 import CounterApp from './src/CounterApp.js'
 
 
+const initialState = {
+  counter :0
+}
 
-
-const reducer = () => {
+const reducer = (state = initialState) => {
+  return state
 }
 
 const store = createStore(reducer)
