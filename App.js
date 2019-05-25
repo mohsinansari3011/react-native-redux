@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStore } from 'redux'
 import CounterApp from './src/CounterApp.js'
-
+import {Provider} from 'react-redux'
 
 const initialState = {
   counter :0
@@ -20,7 +20,10 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <CounterApp/>
+      <Provider store={store}>
+        <CounterApp />
+      </Provider>
+      
     );
   }
 }

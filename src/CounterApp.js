@@ -1,6 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+
+
+
+
+
 export default class CounterApp extends React.Component {
 
     state = {
@@ -37,6 +42,12 @@ export default class CounterApp extends React.Component {
     }
 }
 
+
+function mapStateToProps(state) {
+return{
+    counter:state.counter
+}
+}
 
 const styles = StyleSheet.create({
     container: {
