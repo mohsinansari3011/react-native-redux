@@ -11,10 +11,8 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'INCREASE_COUNTER':
       return { counter : state.counter + 1}
-      break;
     case 'DECREASE_COUNTER':
       return { counter: state.counter - 1 }
-      break;
     default:
       break;
   }
