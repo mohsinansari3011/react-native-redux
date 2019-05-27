@@ -19,7 +19,7 @@ const reducer = (state = initialState, action) => {
   return state
 }
 
-//const store = createStore(reducer)
+const store = createStore(reducer)
 
 
 export default class App extends React.Component {
