@@ -42,7 +42,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return{
-        //increaseCounter : () => dispatach({ type : 'INCREASE_COUNTER' }),
+        increaseCounter : () => dispatach({ type : 'INCREASE_COUNTER' }),
         decreaseCounter: () => dispatach({ type: 'DECREASE_COUNTER' })        
     }
 }
