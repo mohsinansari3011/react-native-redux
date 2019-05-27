@@ -1,39 +1,29 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { connect } from 'react-redux'
 
 
 
 
 
+ class CounterApp extends React.Component {
 
-export default class CounterApp extends React.Component {
-
-    state = {
-        counter: 0
-    }
-
-    increaseCounter = () => {
-        this.setState({ counter: this.state.counter + 1 })
-    }
-
-    decreaseCounter = () => {
-        this.setState({ counter: this.state.counter - 1 })
-    }
+ 
 
 
     render() {
         return (
             <View style={styles.container}>
                 <View style={{ flexDirection: 'row', width: 200, justifyContent: 'space-around' }}>
-                    <TouchableOpacity onPress={() => this.increaseCounter()}>
+                    <TouchableOpacity onPress={() => this.props.increaseCounter()}>
                         <Text style={{ fontSize: 20 }}>Increase</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
-                        <Text style={{ fontSize: 20 }}>{this.state.counter}</Text>
+                        <Text style={{ fontSize: 20 }}>{this.props.counter}</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => this.decreaseCounter()}>
+                    <TouchableOpacity onPress={() => this.props.decreaseCounter()}>
                         <Text style={{ fontSize: 20 }}>Decrease</Text>
                     </TouchableOpacity>
                 </View>
@@ -43,11 +33,22 @@ export default class CounterApp extends React.Component {
 }
 
 
+
 function mapStateToProps(state) {
-return{
-    counter:state.counter
+    return{
+        counter : state.counter
+    }
 }
+
+function mapDispatchToProps(dispatch) {
+    return{
+        //increaseCounter : () => dispatach({ type : 'INCREASE_COUNTER' }),
+        decreaseCounter: () => dispatach({ type: 'DECREASE_COUNTER' })        
+    }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(CounterApp)
+
 
 const styles = StyleSheet.create({
     container: {
